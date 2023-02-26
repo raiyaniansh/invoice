@@ -27,17 +27,45 @@ class _DetailsState extends State<Details> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.grey.shade900,
-        appBar: AppBar(title: Text("Your Products"),
-        backgroundColor: Colors.grey.shade900),
         body: Stack(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: ListView.builder(
-                itemCount: product.length,
-                itemBuilder: (context, index) {
-                return Box("${product[index].pname}","${product[index].pqua}",index,product,"${product[index].pprice}","${product[index].ptexname}","${product[index].ptexrat}");
-              },),
+            Container(
+              width: double.infinity,
+              height: 150,
+              color: Colors.white,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 10,top: 15),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    InkWell(onTap: () {
+                      setState(() {
+                        Navigator.pop(context);
+                      });
+                    },child: Icon(Icons.arrow_back,size: 25,)),
+                    SizedBox(height: 10,),
+                    Text("Your product",style: TextStyle(color: Colors.grey.shade900,fontWeight: FontWeight.bold,fontSize: 35)),
+                  ],
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment(0, 2.5),
+              child: Container(
+                height: 750,
+                decoration: BoxDecoration(
+                  color: Colors.grey.shade900,
+                  borderRadius: BorderRadius.only(topRight: Radius.circular(25),topLeft: Radius.circular(25)),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: ListView.builder(
+                    itemCount: product.length,
+                    itemBuilder: (context, index) {
+                    return Box("${product[index].pname}","${product[index].pqua}",index,product,"${product[index].pprice}","${product[index].ptexname}","${product[index].ptexrat}");
+                  },),
+                ),
+              ),
             ),
             Align(
               alignment: Alignment.bottomCenter,

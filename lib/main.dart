@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:invoice/home.dart';
 import 'package:invoice/print.dart';
 import 'package:invoice/productdetails.dart';
+import 'package:invoice/splash.dart';
 
 int sum=0;
 int tex=0;
@@ -13,7 +14,8 @@ void main() {
     MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        '/':(context) => Home(),
+        '/':(context) => Splash(),
+        'home':(context) => Home(),
         'details':(context) => Details(),
         'bill':(context) => Bill(),
       },
